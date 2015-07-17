@@ -25,6 +25,15 @@ var AppModel = Backbone.Model.extend({
         this.set('currentSong', songQueue.at(0)); //gets the first song on the queue
       }
     },this);
+
+    this.get('songQueue').on('dequeue', function(songQueue){
+      this.set('currentSong', songQueue.at(0));
+    }, this);
+
+    //
+    // this.get('songQueue').on('dequeue', function(){
+    //   this.set('currentSong', this.get('songQueue').at(0));
+    // },this);
   }
 
 });
